@@ -87,9 +87,16 @@ const Logon = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://10.216.1.214:8080/getUserDtls/oli123')
+      .get('http://10.216.1.214:8080/getUserDtls/oli123', {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+        }
+      }
+
+      )
       .then(response => console.log(response.data))
-    console.log('comp mounted')
+
   }, [])
 
   return (
