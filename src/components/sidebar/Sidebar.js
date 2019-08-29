@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -32,7 +33,11 @@ const Sidebar = () => {
     <Container>
       <CircleNav>
         <Bar />
-        <Circle />
+        <NavLink to="/" activeClassName="chosen" style={{ display: 'flex' }} >
+          <Circle />
+          test
+        </NavLink>
+
         <Bar />
         <Circle />
         <Bar />

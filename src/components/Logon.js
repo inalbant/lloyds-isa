@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import image from '../assets/macbookguy.jpg'
+import axios from 'axios';
 
 const Container = styled.div`
   /* max-width: 60%; */
@@ -83,6 +84,13 @@ const Logon = (props) => {
     event.preventDefault()
     props.history.push('/isas')
   }
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/getUserDtls/oli123')
+      .then(response => console.log(response.data))
+
+  }, [])
 
   return (
     <Container>
