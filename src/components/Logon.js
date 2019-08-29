@@ -87,9 +87,9 @@ const Logon = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/getUserDtls/oli123')
+      .get('http://10.216.1.214:8080/getUserDtls/oli123')
       .then(response => console.log(response.data))
-
+    console.log('comp mounted')
   }, [])
 
   return (

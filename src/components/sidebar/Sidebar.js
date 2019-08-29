@@ -13,6 +13,19 @@ const CircleNav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    background: pink;
+    font-weight: 600;
+    font-size: 1.3rem;
+
+    p {
+      margin-left: 0.8em;
+      cursor: pointer;
+    }
+  }
 `
 const Bar = styled.div`
   width: 8px;
@@ -33,9 +46,9 @@ const Sidebar = () => {
     <Container>
       <CircleNav>
         <Bar />
-        <NavLink to="/" activeClassName="chosen" style={{ display: 'flex' }} >
+        <NavLink to="/" activeClassName="chosen">
           <Circle />
-          test
+          <p>ISA Info</p>
         </NavLink>
 
         <Bar />
