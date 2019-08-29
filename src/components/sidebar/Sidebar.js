@@ -1,29 +1,30 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Route, NavLink, BrowserRouter as Router, Switch } from 'react-router-dom'
 import styled from 'styled-components'
+import InfoPage from '../main/InfoPage';
 
 const Container = styled.div`
-  width: 20%;
-  display: flex;
-  justify-content: center;
+  width: 23%;
   background: #eef4e6;
 `
 const CircleNav = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   a {
     display: flex;
     align-items: center;
-    background: pink;
-    font-weight: 600;
-    font-size: 1.3rem;
+    padding-left: 2em;
 
     p {
-      margin-left: 0.8em;
+      font-weight: 600;
+      font-size: 1.1rem;
+
       cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `
@@ -31,14 +32,18 @@ const Bar = styled.div`
   width: 8px;
   height: 30px;
   background: #2F2F2F;
+  margin-left: 3.22em;
 `
 
 const Circle = styled.div`
+  color: #006A4D;
   width: 40px;
   height: 40px;
-  background: #649c00;
+  background: #BBBBBB;
   border-radius: 50%;
   border: 3px solid;
+  flex-shrink: 0;
+  margin-right: 1em;
 `
 
 const Sidebar = () => {
@@ -46,25 +51,53 @@ const Sidebar = () => {
     <Container>
       <CircleNav>
         <Bar />
-        <NavLink to="/" activeClassName="chosen">
-          <Circle />
-          <p>ISA Info</p>
-        </NavLink>
-
-        <Bar />
-        <Circle />
-        <Bar />
-        <Circle />
-        <Bar />
-        <Circle />
-        <Bar />
-        <Circle />
-        <Bar />
-        <Circle />
-        <Bar />
-        <Circle />
-        <Bar />
-        <Circle />
+        <Router>
+          <NavLink to="/info" activeClassName="chosen">
+            <Circle />
+            <p>ISA Info</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Eligibility</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Profile</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Funds</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Fund Description</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Investment Selection</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Summary</p>
+          </NavLink>
+          <Bar />
+          <NavLink to="/" activeClassName="chosen">
+            <Circle />
+            <p>Confirmation</p>
+          </NavLink>
+          <Switch>
+            <Route path="/info" component={InfoPage} />
+            {/* <Route path="/eligibility" component={Users} />
+            <Route path="/contact" component={Contact} />
+            <Route component={Notfound} /> */}
+          </Switch>
+        </Router>
         <Bar />
       </CircleNav>
     </Container>

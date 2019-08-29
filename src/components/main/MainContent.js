@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Sidebar from '../sidebar/Sidebar';
+import InfoPage from './InfoPage';
 
 const MainContainer = styled.div`
-  height: 60vh;
+  height: 61vh;
   display: flex;
   max-width: 1136px;
   margin: 0 auto;
@@ -15,7 +16,7 @@ function MainContent() {
   return (
     <MainContainer>
       <Sidebar />
-      <h1>main content goes here</h1>
+      <InfoPage />
     </MainContainer>
   )
 }
