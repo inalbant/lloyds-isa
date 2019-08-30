@@ -3,7 +3,7 @@ import { Route, NavLink, BrowserRouter as Router, Switch } from 'react-router-do
 import styled from 'styled-components'
 import InfoPage from '../main/InfoPage';
 
-const Container = styled.div`
+const SideContainer = styled.div`
   width: 23%;
   background: #eef4e6;
 `
@@ -48,7 +48,7 @@ const Circle = styled.div`
 
 const Sidebar = () => {
   return (
-    <Container>
+    <SideContainer>
       <CircleNav>
         <Bar />
         <Router>
@@ -100,7 +100,7 @@ const Sidebar = () => {
         </Router>
         <Bar />
       </CircleNav>
-    </Container>
+    </SideContainer>
   )
 }
 

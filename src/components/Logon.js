@@ -82,7 +82,7 @@ const Logon = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    props.history.push('/isas')
+    props.history.push('/isa')
   }
 
   useEffect(() => {

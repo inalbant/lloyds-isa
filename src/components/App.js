@@ -16,7 +16,7 @@ function App() {
 
         <Switch>
           <Route path="/" exact component={Logon} />
-          <Route path="/isas" component={MainContent} />
+          <Route path="/isa" component={MainContent} />
         </Switch>
 
         <BigFooter />
