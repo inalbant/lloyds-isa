@@ -13,12 +13,10 @@ function App() {
     <>
       <Router>
         <Header />
-
         <Switch>
           <Route path="/" exact component={Logon} />
           <Route path="/isa" component={MainContent} />
         </Switch>
-
         <BigFooter />
         <Footer />
       </Router>

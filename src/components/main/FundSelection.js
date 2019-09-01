@@ -9,8 +9,6 @@ import consEn from '../../assets/conservative-enabled.png'
 import balEn from '../../assets/balanced-enabled.png'
 import aggEn from '../../assets/aggressive-enabled.png'
 import BouncingArrow from '../BouncingArrow';
-import Investment from './Investment';
-import { FundProvider } from '../../SelectedFundsContext'
 
 const Container = styled.div`
   width: 100%;
@@ -41,8 +39,6 @@ const FundSelection = () => {
   const [bal, setBal] = useState(false)
   const [agg, setAgg] = useState(false)
 
-  const funds = { cons, bal, agg }
-
   const handleClickCon = () => {
     const imgEl = document.getElementById('con')
     imgEl.src = cons ? consDis : consEn
@@ -61,27 +57,39 @@ const FundSelection = () => {
     setAgg(!agg)
   }
 
+  const chosenFunds = () => {
+    let str = ''
+    if (cons) {
+      str = str.concat('con')
+    }
+    if (bal) {
+      str = str.concat('bal')
+    }
+    if (agg) {
+      str = str.concat('agg')
+    }
+    return str
+  }
+
   return (
-    <FundProvider value={funds}>
-      <Container>
-        <h1>Select the right fund for you</h1>
-        <Images>
-          <ImgContainer onClick={handleClickCon}>
-            <img src={consDis} alt="conservative-disabled" id='con' />
-          </ImgContainer>
-          <ImgContainer onClick={handleClickBal} >
-            <img src={balDis} alt="balanced-disabled" id='bal' />
-          </ImgContainer>
-          <ImgContainer onClick={handleClickAgg} >
-            <img src={aggDis} alt="aggressive-disabled" id='agg' />
-          </ImgContainer>
-        </Images>
-        <img src={graph} alt="graph" style={{ marginTop: '3em' }} />
-        <Link to="/isa/investment" component={Investment}>
-          <BouncingArrow />
-        </Link>
-      </Container>
-    </FundProvider>
+    <Container>
+      <h1>Select the right fund for you</h1>
+      <Images>
+        <ImgContainer onClick={handleClickCon}>
+          <img src={consDis} alt="conservative-disabled" id='con' />
+        </ImgContainer>
+        <ImgContainer onClick={handleClickBal} >
+          <img src={balDis} alt="balanced-disabled" id='bal' />
+        </ImgContainer>
+        <ImgContainer onClick={handleClickAgg} >
+          <img src={aggDis} alt="aggressive-disabled" id='agg' />
+        </ImgContainer>
+      </Images>
+      <img src={graph} alt="graph" style={{ marginTop: '3em' }} />
+      <Link to={`/isa/investment/chosenfunds/${chosenFunds()}`} >
+        <BouncingArrow />
+      </Link>
+    </Container>
   )
 }
 

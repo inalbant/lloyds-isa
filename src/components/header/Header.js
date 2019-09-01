@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../../assets/lloyds-logo.png'
 
@@ -123,7 +124,10 @@ const Header = (props) => {
       </TopBit>
       <LogoNav>
         <LogoNavContainer>
-          <img src={logo} alt="logo" onClick={() => console.log(props)} />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+
           <RightNav>
             <i className="fas fa-phone-alt fa-lg"></i>
             <p style={{ borderRight: "0.02em solid" }}>Contact Us</p>
