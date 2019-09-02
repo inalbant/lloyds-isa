@@ -61,6 +61,14 @@ const Investment = (props) => {
   const [upfront, setUpfront] = useState(0)
   const [monthly, setMonthly] = useState(0)
   const [selectedFunds, setSelectedFunds] = useState('')
+  const [selectedIsas, setSelectedIsas] = useState({
+    conU: '',
+    conM: '',
+    balU: '',
+    balM: '',
+    aggU: '',
+    aggM: ''
+  })
 
   const upFrontChange = e => {
     setUpfront(e.target.value)
@@ -74,6 +82,10 @@ const Investment = (props) => {
     const { funds } = props.match.params
     setSelectedFunds(funds)
   }, [props.match.params])
+
+  const updateIsas = ({ state }) => {
+    setSelectedIsas(state)
+  }
 
   return (
     <Container>
@@ -94,7 +106,7 @@ const Investment = (props) => {
           <p>Set an amount you are happy to contribute to your ISA each month via standing order.</p>
         </div>
       </form>
-      {selectedFunds ? <SelectedFunds funds={selectedFunds} upfront={upfront} monthly={monthly} /> :
+      {selectedFunds ? <SelectedFunds funds={selectedFunds} upfront={upfront} monthly={monthly} updateIsas={updateIsas} /> :
         <h2>No funds selected.</h2>}
       {selectedFunds && <Link to={`/isa/summary/`}> <BouncingArrow /> </Link>}
     </Container>

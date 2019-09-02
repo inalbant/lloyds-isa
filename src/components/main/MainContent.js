@@ -6,6 +6,7 @@ import FundSelection from './FundSelection';
 import Investment from './Investment';
 import Summary from './Summary';
 import Logon from '../Logon'
+import Confirmation from './Confirmation';
 
 const MainContainer = styled.div`
   height: 67vh;
@@ -104,7 +105,12 @@ const MainContent = () => {
               <p>Investment Selection</p>
             </NavLink>
             <Bar />
-            <NavLink to="/isa/summary" activeClassName="chosen">
+            <NavLink to={
+              {
+                pathname: "/isa/summary",
+
+              }
+            } activeClassName="chosen">
               <Circle />
               <p>Summary</p>
             </NavLink>
@@ -125,6 +131,7 @@ const MainContent = () => {
           <Route path="/isa/investment/chosenfunds" component={Investment} />
           <Route path="/isa/summary/:chosenisas" component={Summary} />
           <Route path="/isa/summary" component={Summary} />
+          <Route path="/isa/confirmation" component={Confirmation} />
           <Redirect from="/isa" exact to="/isa/info" />
         </Switch>
       </Router>

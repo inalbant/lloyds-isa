@@ -31,12 +31,22 @@ const EnabledFund = styled.div`
 `
 
 
-const SelectedFunds = ({ funds, upfront, monthly }) => {
+const SelectedFunds = ({ funds, upfront, monthly, updateIsas }) => {
   useEffect(() => { }, [funds])
 
   const roundToTwo = (val) => Number.parseFloat(val).toFixed(2)
 
   if (funds.length === 9) {
+    let upF = roundToTwo(upfront / 3)
+    let mont = roundToTwo(monthly / 3)
+    updateIsas({
+      conU: upF,
+      conM: mont,
+      balU: upF,
+      balM: mont,
+      aggU: upF,
+      aggM: mont
+    })
     return (
       <Container>
         <EnabledFund>

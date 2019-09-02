@@ -5,12 +5,16 @@ import infoimg from '../../assets/isa_info.png'
 import Bouncingarrow from '../BouncingArrow';
 
 const Container = styled.div`
-  height: 70%;
+  height: 80%;
   width: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h1 {
+    margin-bottom: 1em;
+  }
 `
 
 const Img = styled.div`
@@ -22,6 +26,7 @@ const Img = styled.div`
 const InfoPage = () => {
   return (
     <Container>
+      <h1>Hello Fake Name</h1>
       <Img>
         <img src={infoimg} alt="info" />
         <Link to="/isa/fundsselection">

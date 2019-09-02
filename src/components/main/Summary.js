@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import BouncingArrow from '../BouncingArrow';
 
 const Container = styled.div`
   width: 60%;
@@ -33,6 +35,9 @@ const Summary = (props) => {
         <input type="checkbox" id="checkbox" />
         <label htmlFor="checkbox">I agree to the <a href="#">terms and conditions.</a></label>
       </div>
+      <Link to="/isa/confirmation">
+        <BouncingArrow />
+      </Link>
     </Container>
   )
 }
